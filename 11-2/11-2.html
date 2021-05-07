@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="AlterVista - Editor HTML" />
+    <title> 11-2 </title>
+    <style>
+        #spring,
+        #summer {
+            display: none;
+        }
+
+        #flip,
+        #panel {
+            width: 600px;
+            text-align: center;
+            font-weight: bold;
+            background-color: yellow;
+            border: 1px solid #c3c3c3;
+        }
+
+        #panel {
+            height: 400px;
+            background-image: url(autumn.jpg);
+            background-size: 600px 400px;
+            font-size: 3em;
+            color: yellow;
+            line-height: 400px;
+            display: none;
+        }
+
+        #divred {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            display: none;
+        }
+
+        #divgreen {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            color: white;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+
+    </script>
+    <!--<script>
+  	$(document).ready(function()
+    {
+    	alert("Ready for jQuery");
+    });
+  </script>-->
+    <script>
+        $(document).ready(function () {
+            $('#more').click(function () {
+                $('#winter').fadeToggle(1000);
+            });
+
+            $('#more2').click(function () {
+                $('#spring').fadeToggle('slow');
+            });
+
+            $('#hide').click(function () {
+                $('#ps').hide();
+            });
+
+            $('#show').click(function () {
+                $('#ps').show();
+            });
+
+            $('#hideshow').click(function () {
+                $('#ps').toggle();
+            });
+
+            $('#slideup').click(function () {
+                $('#ps').slideUp();
+            });
+
+            $('#slidedown').click(function () {
+                $('#ps').slideDown();
+            });
+
+            $('#slideupdown').click(function () {
+                $('#ps').slideToggle();
+            });
+
+            $('#flip').click(function () {
+                $('#panel').slideToggle();
+            });
+
+            $('#fadein').click(function () {
+                $('#divred').fadeIn('slow');
+            });
+
+            $('#changecolor').click(function () {
+                $('#divred').css('background-color', 'blue');
+            });
+
+            $('#fadeout').click(function () {
+                $('#divred').fadeOut('slow');
+            });
+
+            $('#animation').click(function () {
+                $('#divgreen').animate({ left: '200px' }, 'slow');
+                $('#divgreen').animate({ height: '200px', opacity: '0.4' }, 'slow');
+                $('#divgreen').animate({ width: '300px', opacity: '0.8' }, 'slow');
+                $('#divgreen').animate({ fontSize: '3em', opacity: '1' }, 'slow');
+                //Go back;
+                $('#divgreen').animate({ fontSize: '1em' }, 'slow');
+                $('#divgreen').animate({ width: '100px', opacity: '0.8' }, 'slow');
+                $('#divgreen').animate({ height: '100px', opacity: '0.4' }, 'slow');
+                $('#divgreen').animate({ left: '10px', opacity: '1' }, 'slow');
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1> Seasons </h1>
+    <div id="ps">
+        <p> My favorite season in a year is Summer. <a href="#" id="more"> More </a></p>
+        <div id="winter">
+            <p> I also like winter. <a href="#" id="more2"> More </a></p>
+        </div>
+        <div id="spring">
+            <p> I also like spring.</p>
+        </div>
+    </div>
+    <button id="hide"> Hide </button>
+    <button id="show"> Show </button>
+    <button id="hideshow"> Hide/Show </button>
+    <br><br>
+    <button id="slideup"> Slide Up </button>
+    <button id="slidedown"> Slide Down </button>
+    <button id="slideupdown"> Slide Up/Down </button>
+    <br><br>
+    <div id="flip"> Click to slide the panel down or up </div>
+    <div id="panel"> Love autumn! </div>
+    <br><br>
+    <div id="divred"> </div><br>
+    <button id="fadein"> Fade In </button>
+    <button id="changecolor"> Change Color </button>
+    <button id="fadeout"> Fade Out </button>
+    <br><br>
+    <button id="animation"> Start Animation </button>
+    <br><br>
+    <div id="divgreen"> Have Fun! </div><br>
+</body>
+
+</html>

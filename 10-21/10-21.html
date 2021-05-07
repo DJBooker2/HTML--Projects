@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="AlterVista - Editor HTML" />
+    <title> 10-21 </title>
+</head>
+
+<body>
+    <script>
+        alert("Welcome to Javascript!");
+    </script>
+    <script>
+        document.write("<h1> Javascript 101 </h1>");
+        document.write("<h2> Is Javascript the same as Java? </h2>");
+    </script>
+    <button onclick="yesButton()"> Yes </button>
+    <script>
+        function yesButton() {
+            alert("No, they are different!");
+        }
+    </script>
+    <button onclick="noButton()"> No </button>
+    <script>
+        function noButton() {
+            alert("You are correct!");
+        }
+    </script>
+    <br>
+    <h2> Sample code: </h2>
+    <img id="myImage" src="../images/Javascript.jpg" style="width: 300px; height: 200px;"><br>
+    <button onclick="document.getElementById('myImage').src='../images/JavaScript.jpg'"> Javascript </button>
+    <button onclick="document.getElementById('myImage').src='../images/Java.png'"> Java </button>
+
+    <h2> Handle events: </h2>
+    <p>
+        <a href="#" onmouseover="alert('Yes!');"> Do you know Java programming? (Mouse over to see the answer) </a>
+    </p>
+    <p>
+        <a href="#" onmouseout="alert('Start learning it.');"> Do you know Javascript programming? (Mouse over to see
+            the answer) </a>
+    </p>
+
+    <img onmouseover="nigImg(this)" onmouseout="normalImg(this)" src="../images/tryJavaScript.jpg" alt="Try Javascript">
+    <script>
+        function bigImg(x) {
+            x.style.width = "440px";
+            x.style.height = "260px";
+            x.style.transition = "width 2s, height 2s";
+        }
+    </script>
+    <h2 id "easy" onmouseover="document.getElementById('easy').style.color = 'red'"
+        onmouseout="document.getElementById('easy').style.color = 'green'"> Javascript is easy! </h2>
+    <h3> This page was modified on:
+        <script>
+            document.write(document.lastModified);
+        </script>
+    </h3>
+</body>
+
+</html>

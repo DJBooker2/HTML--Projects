@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="AlterVista - Editor HTML" />
+    <title> 10-23 </title>
+    <script>
+        function easyTest() {
+            var number;
+            number = prompt("What is 2 + 2?");
+            if (parseInt(number) == 4) {
+                alert("Correct!");
+            }
+            else {
+                alert("Wrong!");
+            }
+        }
+
+        function mediumTest() {
+            var number1, number2;
+            number1 = prompt("Please inout a number:");
+            number2 = prompt("What is " + number1 + " * " + number1 + " ?");
+            if (parseInt(number2) == parseInt(number1) * parseInt(number1)) {
+                alert("Correct!");
+            }
+            else {
+                alert("Wrong!");
+            }
+        }
+
+        function hardTest() {
+            var number1, number2, number3;
+            number1 = prompt("Please input a number:");
+            number2 = prompt("Please input another number:");
+            number3 = prompt("What is " + number1 + " * " + number2 + " ?");
+            if (parseInt(number3) == parseInt(number1) * parseInt(number2)) {
+                alert("Correct!");
+            }
+            else {
+                alert("Wrong!");
+            }
+        }
+
+        function APTest() {
+            var number1, number2, number3;
+            number1 = prompt("Please input a number:");
+            number2 = prompt("Please input another number:");
+            number3 = prompt("What is the sum of all the whole numbers from" + number1 + " to " + number2 + " ?");
+            var sum = 0;
+            for (i = parseInt(number1); i <= parseInt(number2); i++) {
+                sum = sum + i;
+            }
+            if (parseInt(number3) == sum) {
+                alert("Correct!");
+            }
+            else {
+                alert("Wrong!");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+        var userName;
+        userName = prompt("Please input your name:");
+        document.write("<h2> Hello " + "</h2>");
+        var userColor;
+        userColor = prompt(userName + ", do you like red, blue, green, or yellow as background color?");
+        document.bgColor = userColor;
+        userColor = prompt(userName + ", do you like red, blue, green, yellow, black or white as font color?");
+        document.fgColor = userColor;
+    </script>
+
+    <script>
+        var score;
+        score = prompt(userName + ", please enter your test score:");
+        if (score >= 90) {
+            document.write("<h2>Good job " + userName + "! You got an A!</h2>");
+        }
+        else if (score >= 80) {
+            document.write(userName + "! You got an B!</h2>");
+        }
+        else if (score >= 70) {
+            document.write(userName + "! You got an C!</h2>");
+        }
+        else if (score >= 60) {
+            document.write(userName + "! You got an D!</h2>");
+        }
+        else {
+            document.write("<h2>Work harder!</h2>");
+        }
+    </script>
+
+    <h2> Select a test to take: </h2>
+    <input type="button" value="Easy" onclick="easyTest();">
+    <input type="button" value="Medium" onclick="mediumTest();">
+    <input type="button" value="Hard" onclick="hardTest();">
+    <input type="button" value="AP" onclick="APTest();">
+</body>
+
+</html>

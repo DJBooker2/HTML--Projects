@@ -1,0 +1,30 @@
+table {
+  margin: auto;
+  width: 80%;
+  border: 5px solid #000066;
+  border-collapse: collapse;
+  text-align: center;
+  height: 500px;
+}
+
+th,
+td {
+  padding: 0.5em;
+  font-family: Arila, sans-serif;
+  border: 1px solid #000066;
+}
+
+caption {
+  font-family: Arila, sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding-bottom: 0.5em;
+}
+
+#table1 {
+  background-image: url(../Images/dots.png) background-size 100%;
+}
+
+h1 {
+  text-align: center;
+}

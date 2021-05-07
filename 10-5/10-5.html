@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="AlterVista - Editor HTML" />
+    <title> 10-5 </title>
+
+    <!--Change the style and the text-->
+    <style>
+        fieldset,
+        textarea {
+            width: 400px;
+            border: 2px ridge #eaeaea;
+            padding: 10px;
+            text-align: center;
+        }
+
+        legend {
+            font-family: Georgia, "Times New Roman", sans-serif;
+            font-weight: bold;
+        }
+
+        label {
+            font-family: Arial, sans-serif;
+            text-align: right;
+        }
+
+        table,
+        th,
+        td {
+            width: 50px;
+            border: 1px solid black;
+            text-align: right;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1> IT Student Regestration </h1>
+    <p>
+        Required Fields are marked with an astrisk (*)
+    </p>
+    <form method="post" action="10-5.php">
+        <!--Create a Form-->
+        <!--Create a Label-->
+        <!--Add blox around fields-->
+        <fieldset>
+            <legend> Customer information </legend>
+            <label for="studentid">*StudentID:</label><input type="text" name="studentid" id="studentid"
+                required="required" placeholder="E.x: 900190099"><br>
+            <label for="password">*Password:</label><input type="password" name="password" id="password"
+                required="required" placeholder="E.x: xxxxxxxx"><br>
+            <label for="repassword">*Retype Password:</label><input type="password" name="repassword" id="repassword"
+                required="required" placeholder="E.x: xxxxxxx"><br>
+            <label for="fname">First Name:</label><input type="text" name="fname" id="fname"
+                placeholder="E.x: John"><br>
+            <label for="lname">Last Name:</label><input type="text" name="lname" id="lname" placeholder="E.x: Doe"><br>
+            <label for="email">Email:</label><input type="email" name="email" id="email"
+                placeholder="E.x: jdoe@gge.edu"><br>
+            <label for="phone">Phone:</label><input type="tel" name="phone" id="phone"
+                placeholder="E.x: 888-888-8888"><br>
+            <label for="street">Street:</label><input type="text" name="street" id="street"
+                placeholder="E.x: MLK Drive"><br>
+            <label for="city">City:</label><input type="text" name="city" id="city" placeholder="E.x: Atlata"><br>
+            <label for="state">State:</label><input type="text" name="state" size="2" maxlength="2" id="state"
+                placeholder="E.x: GA"><br>
+            <label for="zip">Zip:</label><input type="text" name="zip" size="5" maxlength="5" id="zip"
+                placeholder="E.x: 30605"><br>
+            <label for="level">Level:</label>
+            <select size="1" id="level" name="level">
+                <option> Choose your level at GGC </option>
+                <option value="Freshman"> Freshmen </option>
+                <option value="Sophomore"> Sophomore </option>
+                <option value="Junior"> Junior </option>
+                <option value="Senior"> Senior </option>
+            </select>
+        </fieldset>
+        <br><br>
+        <fieldset>
+            <legend> IT Preferences </legend>
+            <label><input type="checkbox" id="ownComputer" name="ownComputer" value="yes"> I own a
+                computer.</label><br><br>
+
+            How long do you use a computer a day?<br>
+            <input type="radio" name="name" id="t1" value="0-2 hours"><label for "t1"> 0-2 hours</label><br>
+            <input type="radio" name="name" id="t2" value="2-5 hours"><label for "t2"> 2-5 hours</label><br>
+            <input type="radio" name="name" id="t3" value="5+ hours"><label for "t3"> 5+ hours</label><br>
+
+            What is your favorite computer brand?<br>
+            <input type="radio" id="mac" value="Mac"><label for "mac"> Mac </label><br>
+            <input type="radio" id="dell" value="Dell"><label for "dell">Dell </label><br>
+            <input type="radio" id="hp" value="HP"><label for "hp"> HP </label><br>
+            <input type="radio" id="len" value="Lenovo"><label for "len"> Lenovo </label><br>
+
+            What is yout favorite web browser (you can pick more than one)?<br>
+            <input type="checkbox" name="ie" id="ie"><label for "ie"> Internet Explorer </label><br>
+            <input type="checkbox" name="firefox" id="firefox"><label for "ie"> Firefox </label><br>
+            <input type="checkbox" name="chrome" id="chrome"><label for "ie"> Chrome </label><br>
+            <input type="checkbox" name="Safari" id="Safari"><label for "ie"> Safari </label><br>
+
+            What is your concentration?<br>
+            <select size="5">
+                <option> Digital Media </option>
+                <option> Enterprise Systems </option>
+                <option> Software Developement </option>
+                <option> System and Security </option>
+                <option> Data Science </option>
+            </select>
+        </fieldset>
+        <br><br>
+
+        <!--Submit Button-->
+        <input type="submit" value="Submit">
+        <input type="reset">
+    </form>
+    <br><br>
+</body>
+
+</html>

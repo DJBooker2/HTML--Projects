@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="AlterVista - Editor HTML" />
+    <title> 11-9 </title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="200" height="600" style="border:1px solid #000000;">
+    </canvas>
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        //Draw square
+        ctx.fillStyle = "#ff0000";
+        ctx.fillRect(50, 0, 100, 100); //fillRect(x, y, width, height)
+
+        //draw a line
+        ctx.moveTo(0, 0);
+        ctx.lineTo(200, 100);
+        ctx.stroke();
+
+        ctx.moveTo(200, 0);
+        ctx.lineTo(0, 100);
+        ctx.stroke();
+
+        //draw an arc
+        ctx.beginPath();
+
+        //arc(x, y, sAngle, eAngle)
+        /*full circle
+         ctx.arc(100, 50, 40, 0, 2*Math.PI);*/
+        ctx.arc(100, 50, 40, 0.25 * Math.PI, 0.75 * Math.PI);
+        ctx.stroke();
+
+        //draw a piece of pie
+        ctx.beginPath();
+        ctx.arc(0, 0, 50, 0, Math.PI);
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+
+        //create linear gradient
+        //createLinearGradient(x0, y0, x1, y1)
+        var grd = ctx.createLinearGradient(10, 110, 190, 110);
+        grd.addColorStop(0, "red");
+        grd.addColorStop(0.5, "purple");
+        grd.addColorStop(0.75, "pink");
+        grd.addColorStop(1, "yellow");
+        ctx.fillStyle = grd;
+        ctx.fillRect(10, 110, 180, 80);
+
+        var grd1 = ctx.createLinearGradient(10, 210, 190, 290);
+        grd1.addColorStop(0, "red");
+        grd1.addColorStop(0.5, "purple");
+        grd1.addColorStop(0.75, "pink");
+        grd1.addColorStop(1, "yellow");
+        ctx.fillStyle = grd1;
+        ctx.fillRect(10, 210, 180, 80);
+
+        var lingrad = ctx.createLinearGradient(10, 310, 10, 390);
+        lingrad.addColorStop(0, "red");
+        lingrad.addColorStop(0.5, "purple");
+        lingrad.addColorStop(0.75, "pink");
+        lingrad.addColorStop(1, "yellow");
+        ctx.fillStyle = lingrad;
+        ctx.fillRect(10, 310, 180, 80);
+
+        //Create a radial gradient color
+        //createRadialGradient( x0, y0, x1, y1 )
+        var grd3 = ctx.createRadialGradient(100, 450, 5, 100, 450, 30);
+        grd3.addColorStop(0, "red");
+        grd3.addColorStop(1, "white");
+        ctx.fillStyle = grd3;
+        ctx.fillRect(10, 410, 180, 80);
+
+        //Add text
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "red";
+        ctx.fillText("DJ", 10, 520);
+        ctx.strokeStyle = grd;
+        ctx.strokeText("Hello World", 10, 560);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="AlterVista - Editor HTML" />
+    <title> 10-28 </title>
+
+    <!--Change the style and the text-->
+    <style>
+        fieldset,
+        textarea {
+            width: 400px;
+            border: 2px ridge #eaeaea;
+            padding: 10px;
+            text-align: center;
+        }
+
+        legend {
+            font-family: Georgia, "Times New Roman", sans-serif;
+            font-weight: bold;
+        }
+
+        label {
+            font-family: Arial, sans-serif;
+            text-align: right;
+        }
+
+        table,
+        th,
+        td {
+            width: 50px;
+            border: 1px solid black;
+            text-align: right;
+
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var letters = /^[A-Za-z]+$/;
+            var id = document.forms[0].studentid.value.trim();
+            if (id == "") {
+                alert("I.D. field can not be empty.");
+                return false;
+            }
+
+            var age = document.forms[0].age.value.trim();
+            if ((age.length != 0) && (isNaN(age) || parseInt(age) < 18)) {
+                alert("Please input a valid age (must be atleast 18).");
+                return false;
+            }
+
+            var state = document.forms[0].state.value.trim();
+            if ((state.length != 0) && (state.length != 2 || !state.match(letters))) {
+                alert("Please input a 2-letter state abbreviation.");
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1> IT Student Regestration </h1>
+    <p>
+        Required Fields are marked with an astrisk (*)
+    </p>
+    <form onsubmit="return validateForm()">
+        <!--Create a Form-->
+        <!--Create a Label-->
+        <!--Add blox around fields-->
+        <fieldset>
+            <legend> Customer information </legend>
+            <label for="studentid">*StudentID:</label><input type="text" name="studentid" id="studentid"
+                required="required" placeholder="E.x: 900190099"><br>
+            <label for="password">*Password:</label><input type="password" name="password" id="password"
+                required="required" placeholder="E.x: xxxxxxxx"><br>
+            <label for="password2">*Retype Password:</label><input type="password" name="password2" id="password2"
+                required="required" placeholder="E.x: xxxxxxx"><br>
+            <label for="fname">First Name:</label><input type="text" name="fname" id="fname"
+                placeholder="E.x: John"><br>
+            <label for="lname">Last Name:</label><input type="text" name="lname" id="lname" placeholder="E.x: Doe"><br>
+            <label for="email">Email:</label><input type="email" name="email" id="email"
+                placeholder="E.x: jdoe@gge.edu"><br>
+            <label for="phone">Phone:</label><input type="tel" name="phone" id="phone"
+                placeholder="E.x: 888-888-8888"><br>
+            <label for="age">Age:</label><input type="age" name="age" id="age" placeholder="E.x: 18"><br>
+            <label for="street">Street:</label><input type="text" name="street" id="street"
+                placeholder="E.x: MLK Drive"><br>
+            <label for="city">City:</label><input type="text" name="city" id="city" placeholder="E.x: Atlata"><br>
+            <label for="state">State:</label><input type="text" name="state" size="2" maxlength="2" id="state"
+                placeholder="E.x: GA"><br>
+            <label for="zip">Zip:</label><input type="text" name="zip" size="5" maxlength="5" id="zip"
+                placeholder="E.x: 30605"><br>
+            <label for="level">Level:</label>
+            <select size="1" id="level" name="level">
+                <option> Choose your level at GGC </option>
+                <option value="Freshman"> Freshmen </option>
+                <option value="Sophomore"> Sophomore </option>
+                <option value="Junior"> Junior </option>
+                <option value="Senior"> Senior </option>
+            </select>
+        </fieldset>
+        <br><br>
+
+        <!--Submit Button-->
+        <input type="submit" value="Register">
+        <input type="reset">
+    </form>
+    <br><br>
+</body>
+
+</html>

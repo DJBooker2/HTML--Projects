@@ -1,0 +1,41 @@
+#wrapper {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 5px 5px 5px #1e1e1e;
+  background-color: #3b945e;
+}
+
+nav {
+  float: left;
+  width: 130px;
+  padding: 10px;
+}
+
+main {
+  margin-left: 140px;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+nav a {
+  text-decoration: none;
+}
+nav a:link {
+  color: #f2f2f2;
+}
+nav a:visited {
+  color: #ff0000;
+}
+nav a:hover {
+  color: #0000ff;
+}
