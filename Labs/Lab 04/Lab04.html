@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="AlterVista - Editor HTML" />
+    <title>Lab 04</title>
+  </head>
+  <style>
+    p {
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      font-weight: 10px;
+    }
+
+    h1 {
+      font-size: 32px;
+      background: -webkit-linear-gradient(red, yellow);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    div {
+      height: 100%;
+      background-image: linear-gradient(purple, orange);
+    }
+
+    img {
+      transition: all 0.3s ease-in-out 0s;
+    }
+
+    img:hover {
+      cursor: default;
+      transform: rotate(360deg);
+      transition: all 0.3s ease-in-out 0s;
+    }
+  </style>
+  <body>
+    <div>
+      <marquee behavior="alternate"><h1>Happy Halloween!!!</h1></marquee>
+      <marquee behavior="alternate"><img src="../images/witch.png" /></marquee>
+      <p>Trick or Treat</p>
+      <p style="text-align: center">
+        <img
+          src="../images/trickOrtreat.jpg"
+          style="width: 300px; height: 200px"
+        />
+      </p>
+      <p style="text-align: center">
+        <button onclick="document.src='../images/trick.jpg'">Trick</button>
+        <button onclick="document.src='../images/treat.jpg'">Treat</button>
+      </p>
+      <br />
+      <p>I got my favorite candy!</p>
+      <p style="text-align: center"><img src="../images/s-l300.jpg" /></p>
+    </div>
+  </body>
+  <script></script>
+</html>

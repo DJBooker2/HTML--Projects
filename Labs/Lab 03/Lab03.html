@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="AlterVista - Editor HTML"/>
+  <title> Lab 03 </title>
+  <link href = "lab03.css" rel = "stylesheet">
+</head>
+<body>
+	<h1> Information Security Awareness Survey </h1>
+    <p>
+    	1. Demographic information
+    </p>
+    <form method = "post" action = "lab03.php">
+    <label for = "sex"> Gender: </label>
+       <select size = "1" id = "sex" name = "sex"> 
+       	<option> Choose your gender </option>
+        <option> Male </option>
+        <option> Female </option>
+        <option> Do not want to tell </option>
+       </select>
+       <br>
+    <label for = "age"> Age: </label><input type = "number" id = "age" 
+    				name = "age" min = "0" max = "99" value = "18">
+       <br>            
+    <label for = "level"> Level: </label>
+       <select size = "1" id = "level" name = "level"> 
+       	<option> Choose your level at GGC </option>
+        <option value = "Freshman"> Freshmen </option>
+        <option value = "Sophomore"> Sophomore </option>
+        <option value = "Junior"> Junior </option>
+        <option value = "Senior"> Senior </option>
+       </select>
+       <br>
+    <label for = "school"> School: </label>
+       <select size = "1" id = "school" name = "school"> 
+       	<option> Choose your school </option>
+        <option value = "SST"> SST </option>
+        <option value = "SB"> SB </option>
+        <option value = "SE"> SE </option>
+        <option value = "SLA"> SLA </option>
+       </select>
+       <br>
+    <p>
+    	2. How do you evaluate your security knowledge?
+    </p>
+    	<label for = "score"> Choose a score between 1 and 100: </label><br>
+			1 <input type = "range" id = "score" name = "score" min "1" max = "100"> 100 <br>
+    <p>
+    	3. Have your computers been infected by a virus before?
+    </p>
+    	<input type = "radio" name = "virus" id = "t1" value = "yes"><label for "t1"> Yes </label><br>
+        <input type = "radio" name = "virus" id = "t2" value = "no"><label for "t2"> No </label><br>
+    <p>
+    	4. What anit-virus software do you usually use (you can pick more than one answer)?
+    </p>
+       <input type = "checkbox" name = "Norton" id = "Norton"><label for "ie"> Norton </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <input type = "checkbox" name = "McAfee" id = "McAfee"><label for "ie"> McAfee </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <input type = "checkbox" name = "Kasperski" id = "Kasperski"><label for "ie"> Kasperski </label><br>
+       <input type = "checkbox" name = "AVG" id = "AVG"><label for "ie"> AVG </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <input type = "checkbox" name = "Avast" id = "Avast"><label for "ie"> Avast </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <input type = "checkbox" name = "Malwarebytes" id = "Malwarebytes"><label for "ie"> Malwarebytes </label><br>
+       <input type = "checkbox" name = "Bitdefender" id = "Bitdefender"><label for "ie"> Bitdefender </label>&nbsp;&nbsp;&nbsp;&nbsp;
+       <input type = "checkbox" name = "Webroot" id = "Webroot"><label for "ie"> Webroot </label>&nbsp;&nbsp;&nbsp;&nbsp;
+       <input type = "checkbox" name = "Trend Micro" id = "Trend Micro"><label for "ie"> Trend Micro </label><br>
+    <p>
+    	5. Please rate the following questions from strongly disagree to strongly agree:
+    </p>
+    	<table class = "table table-striped">
+          <tr>
+            <td> I know how to create a strong password </td>
+            <td><input type = "radio" name = "strong" value = "Agree"> Strongly Agree </td>
+            <td><input type = "radio" name = "strong" value = "Neutral"><label for = "neutral1"> Disagree </label></td>
+            <td><input type = "radio" name = "strong" value = "Disagree"><label for = "disagree1"> Neutral </label></td>
+            <td><input type = "radio" name = "strong" value = "Disagree"> Agree </td>
+            <td><input type = "radio" name = "strong" value = "Disagree"> Srongly Agree </td>
+          </tr>
+           <tr>
+            <td> I know hw to remove a virus from my computer </td>
+            <td><input type = "radio" name = "virus" value = "Agree"> Strongly Agree </td>
+            <td><input type = "radio" name = "virus" value = "Neutral"><label for = "neutral1"> Disagree </label></td>
+            <td><input type = "radio" name = "virus" value = "Disagree"><label for = "disagree1"> Neutral </label></td>
+            <td><input type = "radio" name = "virus" value = "Disagree"> Agree </td>
+            <td><input type = "radio" name = "virus" value = "Disagree"> Srongly Agree </td>
+          </tr>
+          <tr>
+          	<td> I know how to remove spyware form my computer </td>
+            <td><input type = "radio" name = "remove" value = "Agree"> Strongly Agree </td>
+            <td><input type = "radio" name = "remove" value = "Neutral"><label for = "neutral1"> Disagree </label></td>
+            <td><input type = "radio" name = "remove" value = "Disagree"><label for = "disagree1"> Neutral </label></td>
+            <td><input type = "radio" name = "remove" value = "Disagree"> Agree </td>
+            <td><input type = "radio" name = "remove" value = "Disagree"> Srongly Agree </td>
+          </tr>
+          <tr>
+            <td> I know how to secure my wireless network at home </td>
+            <td><input type = "radio" name = "network" value = "Agree"> Strongly Agree </td>
+            <td><input type = "radio" name = "network" value = "Neutral"><label for = "neutral1"> Disagree </label></td>
+            <td><input type = "radio" name = "network" value = "Disagree"><label for = "disagree1"> Neutral </label></td>
+            <td><input type = "radio" name = "network" value = "Disagree"> Agree </td>
+            <td><input type = "radio" name = "network" value = "Disagree"> Srongly Agree </td>
+          </tr>
+          <tr>
+            <td> I know how to protect my personal information when surfing the internet </td>
+            <td><input type = "radio" name = "surf" value = "Agree"> Strongly Agree </td>
+            <td><input type = "radio" name = "surf" value = "Neutral"><label for = "neutral1"> Disagree </label></td>
+            <td><input type = "radio" name = "surf" value = "Disagree"><label for = "disagree1"> Neutral </label></td>
+            <td><input type = "radio" name = "surf" value = "Disagree"> Agree </td>
+            <td><input type = "radio" name = "surf" value = "Disagree"> Srongly Agree </td>
+          </tr>	
+		</table>
+    <br><br>   
+    <input type = "submit" value = "Submit">
+	<input type = "reset">
+	</form>
+</body>
+</html>

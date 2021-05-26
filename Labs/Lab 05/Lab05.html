@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="AlterVista - Editor HTML" />
+    <title>Lab 05</title>
+  </head>
+  <body>
+    <canvas
+      id="myCanvas"
+      width="400"
+      height="400"
+      style="border: 1px solid #000000"
+    >
+    </canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      ctx.canvas.style.backgroundColor = "#9999ff";
+
+      //Draw sun
+      ctx.beginPath();
+      ctx.arc(0, 0, 50, 0, Math.PI);
+      ctx.fillStyle = "yellow";
+      ctx.fill();
+
+      //Draw Words
+      ctx.font = "30px Arial";
+      ctx.fillStyle = "Black";
+      ctx.strokeText("Hello, Winter", 120, 50);
+
+      //Draw body
+      drawCircle("#fff", 200, 300, 90);
+      drawCircle("#fff", 200, 160, 60);
+
+      //Draw eyes and buttons
+      drawCircle("#000", 220, 150, 5);
+      drawCircle("#000", 180, 150, 5);
+      drawCircle("#000", 200, 260, 5);
+      drawCircle("#000", 200, 320, 5);
+
+      //Draw mouth
+      //arc(x, y, sAngle, eAngle)
+      ctx.beginPath();
+      ctx.arc(200, 150, 40, 0.25 * Math.PI, 0.75 * Math.PI);
+      ctx.fillStyle = "#FF0000";
+      ctx.stroke();
+
+      //Draw snow
+      ctx.beginPath();
+      ctx.fillStyle = "#FFFFFF";
+      ctx.fillRect(0, 350, 400, 50);
+      ctx.stroke();
+
+      ctx.font = "30px Arial";
+      ctx.fillStyle = "black";
+      ctx.fillText("by: DJ Booker", 105, 385);
+
+      //Draw arms
+      ctx.moveTo(119, 290);
+      ctx.lineTo(60, 210);
+      ctx.stroke();
+
+      ctx.moveTo(270, 290);
+      ctx.lineTo(350, 210);
+      ctx.stroke();
+
+      //Circle function
+      function drawCircle(color, x, y, radius) {
+        ctx.strokeStyle = ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2, true);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+      }
+    </script>
+  </body>
+</html>
