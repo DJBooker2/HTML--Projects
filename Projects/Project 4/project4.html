@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="AlterVista - Editor HTML" />
+    <title>My Dream Place</title>
+  </head>
+  <style>
+    #winter,
+    #p1,
+    #p2 {
+      display: none;
+    }
+
+    #flip,
+    #panel {
+      width: 600px;
+      text-align: center;
+      font-weight: bold;
+      background-color: #00005d;
+      border: 1px solid #c3c3c3;
+    }
+
+    #panel {
+      height: 400px;
+      background-image: url(borabora.jpg);
+      background-size: 600px 400px;
+      font-size: 3em;
+      color: #00005d;
+      line-height: 400px;
+      display: none;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+    }
+
+    nav {
+      background-color: #00005d;
+      letter-spacing: 0.1em;
+      font-weight: bold;
+      text-align: center;
+      font-size: 1.5em;
+      color: #ffffff;
+      display: block;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      display: block;
+    }
+
+    nav li {
+      padding: 0.5em;
+      display: inline-block;
+    }
+
+    nav ul ul {
+      position: absolute;
+      background-color: #5564a0;
+      padding: 0;
+      text-align: left;
+      display: none;
+    }
+
+    nav ul ul li {
+      border: 1px solid #00005d;
+      display: block;
+      width: 8em;
+      padding-left: 1em;
+      margin-left: 0;
+    }
+
+    nav li:hover ul {
+      display: block;
+    }
+
+    nav a:link {
+      color: #ffffff;
+    }
+
+    na a:visited {
+      color: #eaeaea;
+    }
+
+    nav a:hover {
+      color: #87cefa;
+    }
+
+    h2 {
+      width: 250px;
+      background-color: #00005d;
+      padding: 10px;
+      transition: width 2s;
+    }
+
+    h2:hover {
+      width: 300px;
+    }
+
+    img {
+      width: 200px;
+      transition: width 2s;
+      -webkit-transition: -webkit-transform 0.8s ease-in-out;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    img:hover {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  </style>
+  <body>
+    <nav id="top">
+      <ul>
+        <li><a href="#top"> My Dream Place </a></li>
+        <li>
+          Contents
+          <ul>
+            <li><a href="#eat"> Food </a></li>
+            <li><a href="#fun"> Activities </a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <br /><br /><br />
+    <h1>BORA BORA</h1>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#more").click(function () {
+          $("#winter").fadeToggle(1000);
+        });
+
+        $("#more2").click(function () {
+          $("#p1").fadeToggle("slow");
+        });
+
+        $("#more3").click(function () {
+          $("#p2").fadeToggle("slow");
+        });
+
+        $("#flip").click(function () {
+          $("#panel").slideToggle();
+        });
+      });
+    </script>
+    <div>
+      <p>
+        My dream place for the winter break is Bora Bora.
+        <a href="#" id="more"> More </a>
+      </p>
+      <div id="winter">
+        <p>
+          The climate in Bora Bora is warm and pleasant for most of the year.
+          Although this is the tropics, the heat is not extreme. A respite is
+          provided by gentle South Pacific Ocean breezes and the north-easterly
+          trade winds. There is only a small variation between daytime and night
+          time temperatures, so you can look forward to balmy evenings during
+          most of the year. <a href="#" id="more2"> More </a>
+        </p>
+      </div>
+
+      <div id="p1">
+        <p>
+          he island’s name—the Tahitian spelling of which is Porapora—means
+          “First Born”; according to tradition, it was the first island created
+          after Raiatea. Bora-Bora was sighted by Dutch admiral Jacob Roggeveen
+          in 1722, visited by Capt. James Cook in 1769 and 1777, and annexed by
+          France in the late 19th century. During World War II the island had an
+          Allied naval base, and the islet of Mute, on the northwest side of
+          Bora-Bora’s reef, was an Allied air base; the airport is still in use.
+          Tourism is Bora-Bora’s primary economic activity. Chief products
+          include copra, vanilla, and mother-of-pearl. Area 14.7 square miles
+          (38 square km). Pop. (2017) 10,605. <a href="#" id="more3"> More </a>
+        </p>
+      </div>
+
+      <div id="p2">
+        <p>
+          The main objective of a Bora Bora vacation is relaxation and this
+          small island offers innumerable ways to achieve it. Repose on the deck
+          of your overwater bungalow, cool off in the luminous lagoon
+          surrounding Bora Bora or bike around the island at a leisurely pace.
+          When you have some energy to burn, we suggest checking out the
+          underwater life at the Bora Bora Lagoonarium and the Coral Gardens.
+          For a taste of the local culture, take a jaunt into Vaitape. And
+          whether you photograph it at a distance or climb its rocky slopes,
+          Mount Otemanu is a must-see. <a href="#" id="more4"></a>
+        </p>
+      </div>
+    </div>
+    <br /><br /><br />
+    <div id="flip">Click to View Image</div>
+    <div id="panel">Bora Bora!!</div>
+    <br /><br /><br />
+    <h2 id="fun">Fun Activities</h2>
+    <br />
+    <br />
+    One major attraction is the snorkeling excursion that can can accommodate up
+    to 10 guests and uses the new full-head masks that incorporate the snorkel
+    so there is minimal fogging or water in the mouth. This activity is ideal
+    for beginners and families alike! The snorkeling begins in shallow water
+    with instruction and moves on to two additional stops at progressively
+    larger depths for optimal viewing of the tropical fish, coral, and large
+    manta and eagle rays. Participants must be at least 6 years old.
+    <br /><br />
+    <img src="b1.jpg" alt="Image" />
+    <img src="b2.jpg" alt="Image" />
+    <img src="b3.jpg" alt="Image" />
+    <img src="b4.jpg" alt="Image" />
+    <br /><br /><br />
+
+    <h2 id="eat">Good Eats</h2>
+    <br />
+    <br />
+    The Manu Tuki Restaurant is the most popular resturant in Bora Bora.
+    <br /><br />
+    <img src="r1.jpeg" alt="Image" />
+    <img src="r2.jpeg" alt="Image" />
+    <img src="r3.jpeg" alt="Image" />
+    <br /><br />
+    <a href="#top">Back to top</a>
+  </body>
+</html>
