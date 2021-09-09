@@ -1,0 +1,15 @@
+<!--
+    Programmed By: DJ Booker
+    Sept 9, 2021
+    This page will
+-->
+
+Create User Accounts Table
+===================
+CREATE TABLE UserAccounts
+(
+UserID int,
+Username varchar(255),
+Password varchar(255),
+);
+
