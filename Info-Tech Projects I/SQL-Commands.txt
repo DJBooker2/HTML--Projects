@@ -10,6 +10,6 @@ CREATE TABLE UserAccounts
 (
 UserID int,
 Username varchar(255),
-Password varchar(255),
+Password varchar(255)
 );
 
