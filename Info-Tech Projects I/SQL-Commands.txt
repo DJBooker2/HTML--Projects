@@ -13,3 +13,14 @@ Username varchar(255),
 Password varchar(255)
 );
 
+Create Encryption Database Table
+===================
+CREATE TABLE EncryptedData
+(
+UserID int,
+FileNumber int,
+FileName varchar(255),
+FileType varchar(255),
+EcrptKey varchar(10)
+);
+
