@@ -5,6 +5,7 @@
 -->
 
 <?php
+// This function will connect to the desired database
 function My_Connect_DB()
 {
 	$servername = "localhost";
@@ -18,14 +19,21 @@ function My_Connect_DB()
 		return $conn;
 }
 
+// This function will run the sql statement while connected to the database
 function My_SQL_EXE($conn, $sql)
 {
-
 	$result = mysqli_query($conn, $sql);
-	if ($result)
+	if ($rresult) {
 		echo "SQL is done successfully.<br/>";
-	else
+	} else {
 		echo "Error in running sql: " . $sql . " with error: " .
 			mysqli_error($conn) . "<br/>";
+	}
 	return $result;
+}
+
+// This function will help with the login process
+function Login()
+{
+	
 }
