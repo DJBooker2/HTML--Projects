@@ -5,7 +5,7 @@
 -->
 
 Create User Accounts Table
-===================
+===========================
 CREATE TABLE UserAccounts
 (
 UserID int,
@@ -14,7 +14,7 @@ Password varchar(255)
 );
 
 Create Encryption Database Table
-===================
+=================================
 CREATE TABLE EncryptedData
 (
 UserID int,
@@ -24,3 +24,7 @@ FileType varchar(255),
 EcrptKey varchar(10)
 );
 
+Insert User Into UserAccounts
+==============================
+INSERT INTO UserAccounts (UserID, Username, Password)
+VALUES ('1','DJ','RicknMorty');
