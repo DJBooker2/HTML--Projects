@@ -14,6 +14,10 @@
             text-align: center;
         }
 
+        h2 {
+            text-align: center;
+        }
+
         #form_upload {
             max-width: 500px;
             margin: auto;
@@ -26,11 +30,45 @@
     <h1>Welcome! Upload a file to begin</h1>
     <br />
     <br />
-    <form id="form_upload" action="http://localhost/My%20Code/HTML--Projects/Info-Tech%20Projects%20I/fileUploadAction.php">
-        Select image to upload:
+    <h2>Encrypt file</h2>
+    <form id="fileUpload"
+        action="http://localhost/My%20Code/HTML--Projects/Info-Tech%20Projects%20I/fileUploadAction.php">
+        Select file to encrypt:
+        <br />
+        <br />
         <input type="file" name="fileToUpload" id="fileToUpload">
+        <br />
         <br/>
-        <input type="submit" value="Upload File" name="submit">
+        Select Encryption Type:
+        <br/>
+        <br/>
+			<select name="encryptType">
+				<option value="type1" <?php if ($query == "") echo "selected"; ?>Type1</option>
+				<option value="type2" <?php if ($query == "") echo "selected"; ?>Type2</option>
+				<option value="type3" <?php if ($query == "") echo "selected"; ?>Type3</option>
+			</select> <br /><br /> 
+        <br />
+        <input type="submit" value="Encrypt File" name="submit">
+    </form>
+    <br/>
+    <br/>
+    <hr/>
+    <br/>
+    <h2>Decrypt file</h2>
+    <form id="fileDecrypt"
+        action="http://localhost/My%20Code/HTML--Projects/Info-Tech%20Projects%20I/decryptAction.php">
+        Select file to Decrypt:
+        <br/>
+        <br/>
+        <input type="file" name="fileToDecrypt" id="fileToDecrypt">
+        <br/>
+        <br/>
+        Enter Decryption Key:
+        <input type="text" id="key" name="key" placeholder="Enter key here.." />
+        <br/>
+        <br/>
+        <input type="submit" value="Decrypt File" name="submit">
+    </form>
     </form>
 </body>
 

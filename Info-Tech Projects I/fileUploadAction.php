@@ -1,15 +1,19 @@
 <!--
+    Programmed By: DJ Booker
+    Sept 10, 2021
     This php action will handle the user querying the entire database
 -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Name Insert Action</title>
+    <title>File Encryption</title>
 </head>
 
 <body>
-    You would like to encrypt file <?php echo $_GET["fileToUpload"]; ?>?<br />
+     <?php
+      echo "The file you would like to encrypt is ".$_GET["fileToUpload"];
+      echo "<br/>";
+      echo "The encryption type is: " .$_GET["encryptType"]; 
+      ?>
 </body>
-
-</html>
