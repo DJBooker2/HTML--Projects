@@ -16,15 +16,14 @@
 
 
     <?php
-
-    // Message output based on output
-    $message = " ";
+    // Check to see if passwords match
+    // If they do the input is saved
     if ($_GET["passwd2"] != $_GET["passwd"]) {
         echo "Please make sure both passwords match!";
     } else {
-        echo $_GET["uName"] . "<br/>";
-        echo $_GET["passwd"] . "<br/>";
-        echo $_GET["passwd2"] . "<br/>";
+        echo "Your username: " . $_GET["uName"] . "<br/>";
+        echo "First Password: " . $_GET["passwd"] . "<br/>";
+        echo "Second Password: " . $_GET["passwd2"] . "<br/>";
     }
     ?>
 </body>
