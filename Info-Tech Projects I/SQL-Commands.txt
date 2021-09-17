@@ -27,4 +27,4 @@ EcrptKey varchar(10)
 Insert User Into UserAccounts
 ==============================
 INSERT INTO UserAccounts (UserID, Username, Password)
-VALUES ('1','DJ','RicknMorty');
+VALUES (1,'DJ','RicknMorty');
