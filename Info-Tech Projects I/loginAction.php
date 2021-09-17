@@ -29,7 +29,7 @@
         My_Connect_DB();
 
         // The query looks through the entire table to make a total amount of rows
-        $query = "select * from $db_tablename";
+        $query = "select * from $db_tablename"; // change $db_tablename
         $res = $db->prepare($query);
         $res->execute();
         $num = $res->rowCount();
