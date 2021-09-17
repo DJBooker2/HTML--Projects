@@ -15,6 +15,7 @@
      <?php
 
         echo "Username is: ".$_GET["uName"];
+        echo "<br/>";
         echo "Password is: ". $_GET["passwd"];
 
         /*
@@ -47,7 +48,7 @@
 
         echo "$num";
         */
-        
+
         ?>
 </body>
 
