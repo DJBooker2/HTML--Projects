@@ -11,10 +11,22 @@
     <title>Login Action</title>
 </head>
 
+
 <body>
-    Username is:  <?php echo $_GET["uName"]; ?>?<br />
-    Password is:  <?php echo $_GET["passwd"]; ?>?<br />
-    Password Confirmation is: <?php echo $_GET["passwd2"]; ?>?<br /> 
+
+
+    <?php
+
+    // Message output based on output
+    $message = " ";
+    if ($_GET["passwd2"] != $_GET["passwd"]) {
+        echo "Please make sure both passwords match!";
+    } else {
+        echo $_GET["uName"] . "<br/>";
+        echo $_GET["passwd"] . "<br/>";
+        echo $_GET["passwd2"] . "<br/>";
+    }
+    ?>
 </body>
 
 </html>
