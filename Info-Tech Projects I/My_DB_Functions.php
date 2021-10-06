@@ -23,7 +23,7 @@ function My_Connect_DB()
 function My_SQL_EXE($conn, $sql)
 {
 	$result = mysqli_query($conn, $sql);
-	if ($rresult) {
+	if ($result) {
 		echo "SQL is done successfully.<br/>";
 	} else {
 		echo "Error in running sql: " . $sql . " with error: " .
@@ -32,8 +32,4 @@ function My_SQL_EXE($conn, $sql)
 	return $result;
 }
 
-// This function will help with the login process
-function Login()
-{
-	
-}
+

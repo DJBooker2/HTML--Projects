@@ -12,44 +12,47 @@
 </head>
 
 <body>
-     <?php
+    <?php
+    // Check to see if the fields are empty
+    if (empty($_GET["uName"])) {
+        $outputMessage = "You must enter a username";
+        echo $outputMessage;
+    } elseif (empty($_GET["passwd"])) {
+        $outputMessage = "Please Enter a password!";
+        echo $outputMessage;
+    }
 
-        echo "Username is: ".$_GET["uName"];
-        echo "<br/>";
-        echo "Password is: ". $_GET["passwd"];
+    // Check database to see if the username and password exits
+    // Query for username and password
 
-        /*
-        Edited By: Mackinnon Jackson
-        Date Last Edited: 9/15/2021
-        Purpose: To add in each user
-       
-        include_once 'My_DB_Functions.php';
+    $db_hostname = 'localhost';
+    $db_username = 'root';
+    $db_password = '';
+    $db_dbname = 'Crypt';
+    $db_tablename = 'UserAccounts';
+    $db_conn_str = "mysql:host=$db_hostname;dbname=$db_dbname";
 
-        // Connect to database
-        My_Connect_DB();
-
-        // The query looks through the entire table to make a total amount of rows
-        $query = "select * from $db_tablename"; // change $db_tablename
-        $res = $db->prepare($query);
-        $res->execute();
-        $num = $res->rowCount();
-
-        //  Both the username and password gets added into the sql statement to be executed
-        $username = $_GET['uName'];
-        $password = $_GET['passwd'];
-        $sql = "INSERT INTO users(userID,username,password) values($num,'" . $username . "','" . $password . "')";
-
-        $result = $db->prepare($sql);
-        $result->execute();
-
-
-
-        echo "Added user";
-
-        echo "$num";
-        */
-
-        ?>
+    try {
+        $db = new PDO($db_conn_str, $db_username, $db_password);
+        $query = "select * from $db_tablename where Username = ? and Password = ?";
+        //echo "$query <br /><br />";
+        $result = $db->prepare($query);
+        $result->execute(array($_GET['uName'], $_GET['passwd']));
+        $num = $result->rowCount();
+        //echo "# of rows returned: " . $num;
+    } catch (PDOException $e) {
+        echo "Error in PDO: " . $e->getMessage();
+    }
+    if ($num == 0) {
+        echo "<p style='color:red'>Login failed!! 
+            <br/>
+            If you have not created a account please click Sign Up
+        <p />";
+    } else {
+        header("Location: http://localhost/My%20Code/HTML--Projects/Info-Tech%20Projects%20I/Homepage.html", true, 301);
+        exit;
+    }
+    ?>
 </body>
 
 </html>

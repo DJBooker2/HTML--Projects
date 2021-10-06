@@ -18,58 +18,354 @@
             text-align: center;
         }
 
-        #form_upload {
-            max-width: 500px;
-            margin: auto;
+
+
+        .greenspan {
+            color: green;
+        }
+
+        .redspan {
+            color: red;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .dropzone {
+            border: 10px dashed gray;
+            width: 10%;
+            length:50%;
+            padding: 2% 2% 5% 2%;
+            text-align: center;
+            margin: 5px 0 5px 0;
+        }
+        a, a:link, a:visited, a:active {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            cursor:pointer;
+            color: red;
         }
     </style>
 
 </head>
 
 <body>
-    <h1>Welcome! Upload a file to begin</h1>
-    <br />
-    <br />
-    <h2>Encrypt file</h2>
-    <form id="fileUpload"
-        action="http://localhost/My%20Code/HTML--Projects/Info-Tech%20Projects%20I/fileUploadAction.php">
-        Select file to encrypt:
-        <br />
-        <br />
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <br />
-        <br/>
-        Select Encryption Type:
-        <br/>
-        <br/>
-			<select name="encryptType">
-				<option value="type1" <?php if ($query == "type1") echo "selected"; ?>Type1</option>
-				<option value="type2" <?php if ($query == "type2") echo "selected"; ?>Type2</option>
-				<option value="type3" <?php if ($query == "type3") echo "selected"; ?>Type3</option>
-			</select> <br /><br /> 
-        <br />
-        <input type="submit" value="Encrypt File" name="submit">
-    </form>
-    <br/>
-    <br/>
-    <hr/>
-    <br/>
-    <h2>Decrypt file</h2>
-    <form id="fileDecrypt"
-        action="http://localhost/My%20Code/HTML--Projects/Info-Tech%20Projects%20I/decryptAction.php">
-        Select file to Decrypt:
-        <br/>
-        <br/>
-        <input type="file" name="fileToDecrypt" id="fileToDecrypt">
-        <br/>
-        <br/>
-        Enter Decryption Key:
-        <input type="text" id="key" name="key" placeholder="Enter key here.." />
-        <br/>
-        <br/>
-        <input type="submit" value="Decrypt File" name="submit">
-    </form>
-    </form>
+
+<h1>Welcome! Upload a file to begin</h1>
+
+<div>
+
+        <input type="radio" name="list" class="selection" id="AES" value="AES" checked="checked">
+        <label for="AES" class="padding0"><span></span>AES</label>
+
+        <input type="radio" name="list" class="selection" id="Option 2" value="Option 2">
+        <label for="Option 2" class="padding0"><span></span>Option 2</label>
+
+        <input type="radio" name="list" class="selection" id="Option 3" value="Option 3">
+        <label for="Option 3" class="padding0"><span></span>Option 3</label>
+
+
+</div>
+<br>
+<br>
+Password for Encryption:
+<input id=txtEnckey type=password size=30 onkeyup=javascript:passwordvalidate(); value=''>
+(Password must be at least 8 characters long.)
+<span class=greenspan id=spnCheckretype></span>
+<div>
+    <div class=dropzone id="encdropzone" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragend="dragend_handler(event);">
+        <p> You can either drag / drop the file you want to encrypt into here, or click <a onclick=javascript:encfile.click();>here</a> to select from the files.</p>
+        <p><span id=filename></span></p>
+    </div>
+    <input type="file" name="fileup" id="encfile" style="display:none" onchange="selectfile(this.files)">
+</div>
+
+<p> </p>
+
+
+<div><button id=btnEncrypt onclick=javascript:encryptfile(); disabled>Encrypt File</button></div>
+<div><span id=spnEncstatus></span></div>
+<div>
+    <a id=aEncsavefile hidden><button>Save Encrypted File</button></a>
+    <button type="submit" name="submit">Save Info</button>
+</div>
+
+<p> </p>
+</div>
+
+<br>
+<hr>
+<br>
+<h2>Decrypt file</h2>
+
+Select file to Decrypt:
+<br/>
+<br/>
+<input type="file" name="fileToDecrypt" id="fileToDecrypt">
+<br/>
+<br/>
+Enter Decryption Key:
+<input type="text" id="key" name="key" placeholder="Enter key here.." />
+<br/>
+<br/>
+
 </body>
 
 </html>
+
+<!-- This javascript code is modified based of what is provided from Meixler, with the modifications to the main file to start to match with other methods providing other methods of encryption.
+Modification Date 9/28/2021
+Source: https://github.com/meixler/web-browser-based-file-encryption-decryption
+-->
+<script type="text/javascript">
+    var mode=null;
+    var objFile=null;
+    var methods=null;
+    setmethod('AES');
+    setenfortification('encrypt');
+    function setmethod(t){
+        if(t=='AES'){
+            methods='AES';
+        }else if(t=='Option 2'){
+            methods='O2';
+        }
+        else if(t=='Option 3'){
+            methods='O3';
+        }
+    }
+    function setenfortification(t) {
+        if(t=='encrypt') {
+            mode='encrypt';
+        } else if(t=='decrypt') {
+            mode='decrypt';
+        }
+    }
+
+    function passwordvalidate(){
+        if(txtEnckey.value.length>=8) {
+
+            spnCheckretype.innerHTML='[Password length is at least 8 characters long]';
+        } else {
+            spnCheckretype.innerHTML='[Password length is not at least 8 characters long]';
+        }
+
+        if( txtEnckey.value.length>=8 && objFile )
+        { btnEncrypt.disabled=false; } else { btnEncrypt.disabled=true; }
+
+    }
+    Password for Encryption:
+<input id=txtEnckey type=password size=30 onkeyup=javascript:passwordvalidate(); value=''>
+(Password must be at least 8 characters long.
+    function decvalidate() {
+        if( txtDecpassphrase.value.length>0 && objFile ) { btnDecrypt.disabled=false; } else { btnDecrypt.disabled=true; }
+    }
+
+    //drag and drop functions:
+    //https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop
+    function drop_handler(ev) {
+        console.log("Drop");
+        ev.preventDefault();
+
+        var dt = ev.dataTransfer;
+        if (dt.items) {
+
+            for (var i=0; i < dt.items.length; i++) {
+                if (dt.items[i].kind == "file") {
+                    var f = dt.items[i].getAsFile();
+                    console.log("... file[" + i + "].name = " + f.name);
+                    objFile=f;
+                }
+            }
+        } else {
+
+            for (var i=0; i < dt.files.length; i++) {
+                console.log("... file[" + i + "].name = " + dt.files[i].name);
+            }
+            objFile=file[0];
+        }
+        displayfile()
+        if(mode=='encrypt') { passwordvalidate() } else if(mode=='decrypt') { decvalidate(); }
+    }
+
+    function dragover_handler(ev) {
+        console.log("dragOver");
+        // Prevent default select and drag behavior
+        ev.preventDefault();
+    }
+
+    function dragend_handler(ev) {
+
+        // Remove all of the drag data
+        var dt = ev.dataTransfer;
+        if (dt.items) {
+            // Use DataTransferItemList interface to remove the drag data
+            for (var i = 0; i < dt.items.length; i++) {
+                dt.items.remove(i);
+            }
+        } else {
+            // Use DataTransfer interface to remove the drag data
+            ev.dataTransfer.clearData();
+        }
+    }
+
+    function selectfile(Files) {
+        objFile=Files[0];
+        displayfile()
+        if(mode=='encrypt') { passwordvalidate() } else if(mode=='decrypt') { decvalidate(); }
+    }
+
+    function displayfile() {
+        var s;
+        var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+        var bytes=objFile.size;
+        var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+        if(i==0) { s=bytes + ' ' + sizes[i]; } else { s=(bytes / Math.pow(1024, i)).toFixed(2) + ' ' + sizes[i]; }
+
+        if(mode=='encrypt') {
+            filename.textContent=objFile.name + ' (' + s + ')';
+        } else if(mode=='decrypt') {
+
+        }
+    }
+
+    function readfile(file){
+        return new Promise((resolve, reject) => {
+            var fr = new FileReader();
+            fr.onload = () => {
+                resolve(fr.result )
+            };
+            fr.readAsArrayBuffer(file);
+        });
+    }
+
+    async function encryptfile() {
+        btnEncrypt.disabled=true;
+
+        var plaintextbytes=await readfile(objFile)
+            .catch(function(err){
+                console.error(err);
+            });
+        var plaintextbytes=new Uint8Array(plaintextbytes);
+
+        var ppb=new TextEncoder("utf-8").encode(txtEnckey.value);
+        var saltedpass=window.crypto.getRandomValues(new Uint8Array(8));
+
+        var passphrasekey=await window.crypto.subtle.importKey('raw', ppb, {name: 'PBKDF2'}, false, ['deriveBits'])
+            .catch(function(err){
+                console.error(err);
+            });
+
+
+        var pbkdf2bytes=await window.crypto.subtle.deriveBits({"name": 'PBKDF2', "salt": saltedpass, "iterations": 10000, "hash": 'SHA-256'}, passphrasekey, 384)
+            .catch(function(err){
+                console.error(err);
+            });
+
+        pbkdf2bytes=new Uint8Array(pbkdf2bytes);
+
+
+
+        var key=await window.crypto.subtle.importKey('raw', pbkdf2bytes.slice(0,32), {name: 'AES-CBC', length: 256}, false, ['encrypt'])
+            .catch(function(err){
+                console.error(err);
+            });
+
+
+        var cipherbytes=await window.crypto.subtle.encrypt({name: "AES-CBC", iv: pbkdf2bytes.slice(32)}, key, plaintextbytes)
+            .catch(function(err){
+                console.error(err);
+            });
+
+
+        cipherbytes=new Uint8Array(cipherbytes);
+
+        var rebyte=new Uint8Array(cipherbytes.length+16)
+        rebyte.set(new TextEncoder("utf-8").encode('Salted__'));
+        rebyte.set(saltedpass, 8);
+        rebyte.set(cipherbytes, 16);
+
+        var blob=new Blob([rebyte], {type: 'application/download'});
+        var blobUrl=URL.createObjectURL(blob);
+        aEncsavefile.href=blobUrl;
+        aEncsavefile.download=objFile.name + '.enc';
+
+
+        spnEncstatus.innerHTML=key;
+        aEncsavefile.hidden=false;
+
+    }
+    function addInfo(){
+        var mysql = require('mysql');
+        var fn=objFile.name;
+        var array = fn.split('.'),
+            a = array[0], b = array[1];
+
+        var con = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "",
+            database: "Crypt"
+        });
+        con.connect(function(err) {
+            if (err) throw err;
+            console.log("Connected!");
+
+
+            var sql = "INSERT INTO EncryptionData (UserID, FileNumber, FileName, FileType, EcryptKey, EncryptType) VALUES ?";
+            var values=[['1','1',a,b,'Encrypt','EncryptType']]
+            con.query(sql,values, function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted");
+            });})
+
+    }
+
+
+
+</script>
+
+<!-- Just for testing purposes for later on if needed to change the program.
+Source: https://www.c-sharpcorner.com/blogs/advanced-encryption-in-javascript-using-cryptojs
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cryptojs/3.1.2/rollups/aes.js">
+</script>-->
+
+
+<!-- For TripleDES encryption-->
+
+<script>
+
+</script>
+
+
+<!-- For Base64  -->
+
+<script>
+    async function baseencryption(){
+        var plaintextbytes=await readfile(objFile)
+            .catch(function(err){
+                console.error(err);
+            });
+        var plaintextbytes=new Uint8Array(plaintextbytes);
+        var encrypted = base64En(txtEncKey);
+
+
+    }
+function base64En(key){
+    utf8Bytes = encodeURIComponent(key).replace(/%([0-9A-F]{2})/g, function(match, p1) {
+        return String.fromCharCode('0x' + p1);
+    });
+}
+
+
+</script>
+
+
+<script>
+
+</script>

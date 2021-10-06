@@ -8,12 +8,13 @@
 <html lang="en">
 
 <head>
-    <title>Login Action</title>
+    <title>Sign-Up Action</title>
 </head>
 
 
 <body>
     <?php
+
     // Variable to hold the output message
     $outputMessage = " ";
 
@@ -29,11 +30,46 @@
         $outputMessage = "Please make sure both passwords match!";
         echo $outputMessage;
     } else {
-        echo "Your username: " . $_GET["uName"] . "<br/>";
-        echo "First Password: " . $_GET["passwd"] . "<br/>";
-        echo "Second Password: " . $_GET["passwd2"] . "<br/>";
+
+        $db_hostname = 'localhost';
+        $db_username = 'root';
+        $db_password = '';
+        $db_dbname = 'Crypt';
+        $db_tablename = 'UserAccounts';
+        $db_conn_str = "mysql:host=$db_hostname;dbname=$db_dbname";
+        $db = new PDO($db_conn_str, $db_username, $db_password);
+
+        $query = "select * from $db_tablename";
+
+        $res = $db->prepare($query);
+        $res->execute();
+        $num = $res->rowCount();
+
+        $username = $_GET['uName'];
+        $password = $_GET['passwd'];
+
+        $sql = "INSERT INTO UserAccounts(UserID,Username,Password) values($num,'" . $username . "','" . $password . "')";
+
+        $result = $db->prepare($sql);
+        $result->execute();
     }
+    ?>
+    <?php
+     header("Location: http://localhost/My%20Code/HTML--Projects/Info-Tech%20Projects%20I/Login.html", true, 301);
+        exit;
     ?>
 </body>
 
 </html>
+
+/**
+    // Check for username taken
+    $result = mysqli_query($conn, $queryUname);
+    echo $result;
+    if (mysqli_num_rows($result) >= 1) {
+        echo "Please Create A Account to begin Encrypting Files!!";
+    } else {
+        header("Location: http://localhost/My%20Code/HTML--Projects/Info-Tech%20Projects%20I/Homepage.html", true, 301);
+        exit;
+    }
+ */

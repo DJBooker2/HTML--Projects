@@ -28,3 +28,11 @@ Insert User Into UserAccounts
 ==============================
 INSERT INTO UserAccounts (UserID, Username, Password)
 VALUES (1,'DJ','RicknMorty');
+
+
+Added New Column for Encryption FileType
+=========================================
+ALTER TABLE EncryptedData
+ADD EncryptionType varchar(100);
+
+

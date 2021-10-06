@@ -42,6 +42,17 @@
             box-sizing: border-box;
         }
 
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
         input[type="submit"] {
             width: 100%;
             background-color: #4caf50;
@@ -52,6 +63,7 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
 
         input[type="submit"]:hover {
             background-color: #45a049;
@@ -77,13 +89,14 @@
             <input type="text" id="username" name="uName" placeholder="Your name.." />
 
             <label for="passwd">Password</label>
-            <input type="text" id="passwd" name="passwd" placeholder="Your password.." />
+            <input type="password" id="passwd" name="passwd" placeholder="Your password.." />
 
             <label for="passwd">Re-Enter Password</label>
-            <input type="text" id="passwd2" name="passwd2" placeholder="Please re-enter you password.." />
-            <input type="submit" value="Register" />
+            <input type="password" id="passwd2" name="passwd2" placeholder="Please re-enter you password.." />        
+      
+            <input type="submit" value="Register"/>
         </form>
+        
     </div>
 </body>
-
 </html>
