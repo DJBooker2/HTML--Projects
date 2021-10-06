@@ -5,7 +5,7 @@
 -->
 
 <!DOCTYPE html>
-<html lang="en">
+< lang="en">
 
 <head>
     <title>Sign-Up Action</title>
@@ -59,17 +59,3 @@
         exit;
     ?>
 </body>
-
-</html>
-
-/**
-    // Check for username taken
-    $result = mysqli_query($conn, $queryUname);
-    echo $result;
-    if (mysqli_num_rows($result) >= 1) {
-        echo "Please Create A Account to begin Encrypting Files!!";
-    } else {
-        header("Location: http://localhost/My%20Code/HTML--Projects/Info-Tech%20Projects%20I/Homepage.html", true, 301);
-        exit;
-    }
- */
