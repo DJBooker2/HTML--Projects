@@ -31,10 +31,14 @@
     $db_dbname = 'Crypt';
     $db_tablename = 'UserAccounts';
     $db_conn_str = "mysql:host=$db_hostname;dbname=$db_dbname";
+    $userName = $_GET["uName"]; //Hold Username
 
     try {
+
+        //Handle Username and Password
         $db = new PDO($db_conn_str, $db_username, $db_password);
         $query = "select * from $db_tablename where Username = ? and Password = ?";
+        $cookie = "SELECT `UserID` FROM $db_tablename WHERE `Username`=".$_GET["uName"]."";
         //echo "$query <br /><br />";
         $result = $db->prepare($query);
         $result->execute(array($_GET['uName'], $_GET['passwd']));
@@ -44,10 +48,12 @@
         echo "Error in PDO: " . $e->getMessage();
     }
     if ($num == 0) {
+        //setcookie("login", "1", time() + 60);
         echo "<p style='color:red'>Login failed!! 
             <br/>
             If you have not created a account please click Sign Up
         <p />";
+        echo "id " . $result;
     } else {
         header("Location: http://localhost/My%20Code/HTML--Projects/Info-Tech%20Projects%20I/Homepage.html", true, 301);
         exit;

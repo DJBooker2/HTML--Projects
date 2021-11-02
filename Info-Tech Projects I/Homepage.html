@@ -60,15 +60,15 @@
 
 <body>
 
+
     <h1>Welcome! Upload a file to begin</h1>
     <form action="fileUploadAction.php" method="POST" enctype="multipart/form-data">
         <div>
 
             <input type="radio" name="list" class="selection" id="AES" value="AES" checked="checked">
             <label for="AES" class="padding0"><span></span>AES</label>
-
-            <input type="radio" name="list" class="selection" id="Option 2" value="Option 2">
-            <label for="Option 2" class="padding0"><span></span>Option 2</label>
+            ;
+       
 
             <input type="radio" name="list" class="selection" id="Option 3" value="Option 3">
             <label for="Option 3" class="padding0"><span></span>Option 3</label>
@@ -129,7 +129,8 @@
 Modification Date 9/28/2021
 Source: https://github.com/meixler/web-browser-based-file-encryption-decryption
 -->
-<script type="text/javascript">
+<script type="text/javascript">;
+       
     var mode = null;
     var objFile = null;
     var methods = null;
@@ -303,6 +304,45 @@ Source: https://github.com/meixler/web-browser-based-file-encryption-decryption
         aEncsavefile.hidden = false;
 
     }
+
+
+
+    function setCookie(Uname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = Uname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(Uname) {
+        let name = Uname + "=";
+        let ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function checkCookie() {
+        let user = getCookie("username");
+        if (user != "") {
+            alert("Welcome again " + user);
+        } else {
+            user = prompt("Please enter your name:", "");
+            if (user != "" && user != null) {
+                setCookie("username", user, 365);
+            }
+        }
+    }
+
+
+
     function addInfo() {
         var mysql = require('mysql');
         var fn = objFile.name;
